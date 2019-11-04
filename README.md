@@ -13,7 +13,7 @@ clone repository
 build application
 `go build -o main cmd/linktree/main.go` 
 
-running in 8080 port and a mongo simple database
+running in 8080 port and a mongo database
 `./main -http.addr=":8080" -database.url "mongodb://..."`
 
 # Endpoints
