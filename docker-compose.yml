@@ -1,0 +1,24 @@
+version: "3.1"
+
+services:
+  linktree:
+    build:
+      context: ./
+      dockerfile: ./build/Dockerfile
+    command: "./main --database.url=mongodb://admin:admin@mongo:27017"
+    ports:
+      - 8080:8080
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - 27017:27017
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8091:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
